@@ -2,7 +2,7 @@ import { Square } from '../Square/Square';
 import { SquareValue } from '../Square/Square.types';
 import styles from './Board.module.scss';
 
-export const Board = ({ nRows, nCols, food, snake, direction, foodWeight }) => {
+export const Board = ({ nRows, nCols, food, snake, direction }) => {
   const boardStyle = {
     '--n-rows': nRows,
     '--n-cols': nCols,
@@ -11,9 +11,8 @@ export const Board = ({ nRows, nCols, food, snake, direction, foodWeight }) => {
   const getSnakeValue = (i) => {
     if (snake[0] === i) return SquareValue.SnakeHead;
     if (snake.includes(i)) return SquareValue.SnakeBody;
-    if (i === food && foodWeight === 1) return SquareValue.FoodOne;
-    if (i === food && foodWeight === 2) return SquareValue.FoodTwo;
-    if (i === food && foodWeight === 5) return SquareValue.FoodFive;
+
+    if (i === food) return SquareValue.Food;
     return SquareValue.Empty;
   };
 

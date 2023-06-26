@@ -1,8 +1,11 @@
 :root {
   --square-size: 50px;
   --square-background: #fff;
-  --square-snake: #4caf50;
-  --square-food: #f33;
+  --square-snake: #3e42cb;
+  --square-food: rgb(0, 0, 0);
+  --square-food-one: rgb(82, 255, 51);
+  --square-food-two: rgb(255, 207, 51);
+  --square-food-five: rgb(255, 51, 51);
 
   --board-width: calc(var(--square-size) * var(--n-rows));
   --board-height: calc(var(--square-size) * var(--n-cols));

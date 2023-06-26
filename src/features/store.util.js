@@ -38,3 +38,10 @@ export const moveSnake = (snake, nRows, nCols, direction) => {
 
 export const getRandomPos = (nRows, nCols) =>
   Math.floor(Math.random() * nRows * nCols - 1);
+
+export const getRandomWeight = () => {
+  const array = [1, 2, 5];
+  const randomIndex = Math.floor(Math.random() * array.length);
+  const randomNumber = array[randomIndex];
+  return randomNumber;
+};

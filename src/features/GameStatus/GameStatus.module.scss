@@ -3,7 +3,6 @@
 .gameStatus {
   display: flex;
   flex-direction: column;
-  width: 300px;
   text-align: center;
 }
 
@@ -12,13 +11,15 @@
   padding: 5px;
   font-weight: bold;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
 }
 
 .gameStatus input[type='number'] {
+  width: 150px;
+  display: flex;
   padding: 5px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
 }
@@ -39,4 +40,7 @@
 
 .wrapper button[type='reset'] {
   color: #f44336;
+}
+.values {
+  display: flex;
 }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as snakeActions from './features/snake.actions';
 import { GameStatus } from './features/GameStatus/GameStatus';
 import { Board } from './features/Board/Board';
+import { Explanation } from './features/Explanation/Explanation';
 import { useEffect } from 'react';
 
 const App = ({
@@ -40,11 +41,13 @@ const App = ({
       <main>
         <GameStatus
           score={score}
+          speed={speed}
           gameState={boardProps.gameState}
           onReset={onReset}
           onTogglePause={onTogglePause}
         />
         <Board {...boardProps} />
+        <Explanation />
       </main>
     </>
   );
@@ -52,7 +55,7 @@ const App = ({
 
 const mapstate = (state) => ({
   ...state.snake,
-  score: state.snake.snake.length - 1,
+  // score: state.snake.snake.length - 1,
 });
 
 const mapDispatch = {

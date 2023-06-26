@@ -9,6 +9,7 @@ import {
 } from './snake.actions';
 import {
   getRandomPos,
+  getRandomWeight,
   isSnakeCollision,
   isValidDirectionChange,
   moveSnake,
@@ -18,10 +19,12 @@ import { DEFAULT_N_COLS, DEFAULT_N_ROWS } from './store.config';
 
 const initialState = {
   speed: 200,
+  score: 0,
   nRows: DEFAULT_N_ROWS,
   nCols: DEFAULT_N_COLS,
   snake: [Math.floor((DEFAULT_N_ROWS * DEFAULT_N_COLS) / 2)],
   food: getRandomPos(DEFAULT_N_ROWS, DEFAULT_N_COLS),
+  foodWeight: getRandomWeight(),
   direction: 'ArrowUp',
   gameState: GameState.InProgress,
 };
@@ -44,8 +47,10 @@ const snakeReducer = (state = initialState, action) => {
       const newState = {
         ...state,
         speed: 200,
+        score: 0,
         snake: [Math.floor((state.nRows * state.nCols) / 2)],
         food: getRandomPos(state.nRows, state.nCols),
+        foodWeight: getRandomWeight(),
         direction: 'ArrowUp',
         gameState: GameState.InProgress,
       };
@@ -81,12 +86,18 @@ const snakeReducer = (state = initialState, action) => {
 
       let newSnake = [...state.snake];
       let newFood = state.food;
+      let newScore = state.score;
+      let newFoodWeight = state.foodWeight;
       let newSpeed = state.speed;
 
       if (snake[0] === state.food) {
+        newScore = state.score + state.foodWeight;
         newSnake = snake;
         newFood = getRandomPos(state.nRows, state.nCols);
-        newSpeed *= 0.9;
+        newFoodWeight = getRandomWeight();
+        if (newScore === 10) {
+          newSpeed *= 0.9;
+        }
       } else {
         newSnake.pop();
       }
@@ -99,7 +110,9 @@ const snakeReducer = (state = initialState, action) => {
       return {
         ...state,
         snake: newSnake,
+        score: newScore,
         food: newFood,
+        foodWeight: newFoodWeight,
         speed: newSpeed,
         gameState: newGameState,
       };
@@ -108,53 +121,5 @@ const snakeReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-// reducers: {
-//   setDirection: (state, action) => {
-//     const direction = action.payload;
-//     if (!isValidDirectionChange(state.direction, direction)) return;
-
-//     state.direction = direction;
-//   },
-
-// resetGame: (state) => {
-//   state.snake = [Math.floor((state.nRows * state.nCols) / 2)];
-//   state.food = getRandomPos(state.nRows, state.nCols);
-//   state.direction = 'ArrowUp';
-//   state.gameState = GameState.InProgress;
-// },
-
-//     updateBoard: (state) => {
-//       if (state.gameState !== GameState.InProgress) return;
-
-//       const snake = moveSnake(
-//         state.snake,
-//         state.nRows,
-//         state.nCols,
-//         state.direction
-//       );
-
-//       if (snake[0] === state.food) {
-//         state.snake = snake;
-//         state.food = getRandomPos(state.nRows, state.nCols);
-//         state.speed *= 0.9;
-//       } else {
-//         state.snake.pop();
-//       }
-
-//       if (isSnakeCollision(snake)) state.gameState = GameState.GameOver;
-//     },
-
-//     togglePause: (state) => {
-//       if (state.gameState === GameState.InProgress)
-//         state.gameState = GameState.Paused;
-//       else if (state.gameState === GameState.Paused)
-//         state.gameState = GameState.InProgress;
-//     },
-//   },
-// });
-
-// export const { setDirection, togglePause, resetGame, updateBoard } =
-//   SnakeSlice.actions;
 
 export default snakeReducer;
