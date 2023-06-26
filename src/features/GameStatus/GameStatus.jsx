@@ -1,6 +1,6 @@
 import { GameState } from './GameStatus.types';
 import styles from './GameStatus.module.scss';
-import { FinishModal } from '../FinishModal/FinishModal';
+import FinishModal from '../FinishModal/FinishModal';
 
 export const GameStatus = ({
   gameState,
@@ -16,7 +16,7 @@ export const GameStatus = ({
       <input type="number" value={score} disabled />
     </div>
     <div className={styles.values}>
-      <input type="text" value={'Speed'} disabled />
+      <input type="text" value={'Speed (every 10)'} disabled />
       <input type="number" value={speed} disabled />
     </div>
     <div className={styles.wrapper}>
@@ -30,7 +30,7 @@ export const GameStatus = ({
       >
         {gameState === GameState.Paused ? 'Resume' : 'Pause'}
       </button>
-      <FinishModal />
+      {gameState === GameState.GameOver && <FinishModal />}
     </div>
   </section>
 );

@@ -40,21 +40,21 @@
 
 .square[data-value='ArrowDown'] {
   background-color: var(--square-snake);
-  border-radius: 0 0 50% 50%;
+  border-radius: 0 0 25% 25%;
 }
 .square[data-value='ArrowUp'] {
   background-color: var(--square-snake);
-  border-radius: 50% 50% 0 0;
+  border-radius: 25% 25% 0 0;
 }
 
 .square[data-value='ArrowRight'] {
   background-color: var(--square-snake);
-  border-radius: 0 50% 50% 0;
+  border-radius: 0 25% 25% 0;
 }
 
 .square[data-value='ArrowLeft'] {
   background-color: var(--square-snake);
-  border-radius: 50% 0 0 50%;
+  border-radius: 25% 0 0 25%;
 }
 
 .square[data-value='snake-body'] {

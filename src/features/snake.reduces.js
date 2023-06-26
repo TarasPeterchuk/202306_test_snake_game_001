@@ -18,7 +18,7 @@ import { DEFAULT_N_COLS, DEFAULT_N_ROWS } from './store.config';
 // import { Direction } from "../components/Square/Square.types";
 
 const initialState = {
-  speed: 200,
+  speed: 1,
   score: 0,
   nRows: DEFAULT_N_ROWS,
   nCols: DEFAULT_N_COLS,
@@ -34,7 +34,7 @@ const snakeReducer = (state = initialState, action) => {
     case SET_DIRECTION: {
       const { direction } = action.payload;
       if (!isValidDirectionChange(state.direction, direction)) {
-        return state; // No changes, return the current state
+        return state;
       }
 
       return {
@@ -46,7 +46,7 @@ const snakeReducer = (state = initialState, action) => {
     case RESET_GAME: {
       const newState = {
         ...state,
-        speed: 200,
+        speed: 1,
         score: 0,
         snake: [Math.floor((state.nRows * state.nCols) / 2)],
         food: getRandomPos(state.nRows, state.nCols),
@@ -95,9 +95,7 @@ const snakeReducer = (state = initialState, action) => {
         newSnake = snake;
         newFood = getRandomPos(state.nRows, state.nCols);
         newFoodWeight = getRandomWeight();
-        if (newScore === 10) {
-          newSpeed *= 0.9;
-        }
+        newSpeed = Math.floor((state.score + state.foodWeight) / 10) + 1;
       } else {
         newSnake.pop();
       }

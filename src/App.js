@@ -16,7 +16,7 @@ const App = ({
   ...boardProps
 }) => {
   useEffect(() => {
-    const interval = setInterval(moveSnake, speed);
+    const interval = setInterval(moveSnake, 300 / speed);
     return () => clearInterval(interval);
   }, [speed, moveSnake]);
 
