@@ -1,6 +1,4 @@
-// import { createSlice } from "@reduxjs/toolkit";
 import { GameState } from './GameStatus/GameStatus.types';
-// import { StoreType } from "./store.types";
 import {
   SET_DIRECTION,
   TOGGLE_PAUSE,
@@ -15,7 +13,6 @@ import {
   moveSnake,
 } from './store.util';
 import { DEFAULT_N_COLS, DEFAULT_N_ROWS } from './store.config';
-// import { Direction } from "../components/Square/Square.types";
 
 const initialState = {
   speed: 1,
@@ -95,7 +92,7 @@ const snakeReducer = (state = initialState, action) => {
         newSnake = snake;
         newFood = getRandomPos(state.nRows, state.nCols);
         newFoodWeight = getRandomWeight();
-        newSpeed = Math.floor((state.score + state.foodWeight) / 10) + 1;
+        newSpeed = Math.floor((state.score + state.foodWeight) / 50) + 1;
       } else {
         newSnake.pop();
       }

@@ -17,14 +17,14 @@
   background-color: var(--square-food-one);
   animation: hearbeat 1.5s linear infinite;
 }
-.square[data-value='food-two'] {
-  border-radius: 50%;
-  background-color: var(--square-food-two);
-  animation: hearbeat 1.5s linear infinite;
-}
 .square[data-value='food-five'] {
   border-radius: 50%;
   background-color: var(--square-food-five);
+  animation: hearbeat 1.5s linear infinite;
+}
+.square[data-value='food-ten'] {
+  border-radius: 50%;
+  background-color: var(--square-food-ten);
   animation: hearbeat 1.5s linear infinite;
 }
 

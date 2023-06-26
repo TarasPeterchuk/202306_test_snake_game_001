@@ -40,7 +40,7 @@ export const getRandomPos = (nRows, nCols) =>
   Math.floor(Math.random() * nRows * nCols - 1);
 
 export const getRandomWeight = () => {
-  const array = [1, 2, 5];
+  const array = [1, 5, 10];
   const randomIndex = Math.floor(Math.random() * array.length);
   const randomNumber = array[randomIndex];
   return randomNumber;

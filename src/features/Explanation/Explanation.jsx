@@ -8,10 +8,11 @@ export const Explanation = () => (
       <Square value={SquareValue.FoodOne} />1 point
     </div>
     <div className={styles.explanation}>
-      <Square value={SquareValue.FoodTwo} />2 points
+      <Square value={SquareValue.FoodFive} />5 points
     </div>
     <div className={styles.explanation}>
-      <Square value={SquareValue.FoodFive} />5 points
+      <Square value={SquareValue.FoodTen} />
+      10 points
     </div>
   </div>
 );

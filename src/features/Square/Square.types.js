@@ -4,6 +4,6 @@ export const SquareValue = {
   SnakeHead: 'snake-head',
   Food: 'food',
   FoodOne: 'food-one',
-  FoodTwo: 'food-two',
   FoodFive: 'food-five',
+  FoodTen: 'food-ten',
 };

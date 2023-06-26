@@ -16,7 +16,7 @@ export const GameStatus = ({
       <input type="number" value={score} disabled />
     </div>
     <div className={styles.values}>
-      <input type="text" value={'Speed (every 10)'} disabled />
+      <input type="text" value={'Speed'} disabled />
       <input type="number" value={speed} disabled />
     </div>
     <div className={styles.wrapper}>
