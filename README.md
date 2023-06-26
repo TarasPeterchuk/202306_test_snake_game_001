@@ -1,6 +1,6 @@
 # Snake game - React Project. Result stored in API
 
-### [Site link](https://options-board-test-task.netlify.app/)
+### [Site link](https://master--snake-gam-test-task.netlify.app/)
 
 `package.json` contains all modules are needed<br>
 `npm i` install modules<br>
