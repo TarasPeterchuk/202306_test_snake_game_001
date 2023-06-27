@@ -1,12 +1,16 @@
-const baseUrl = 'https://api.iev.aero/api/flights';
+const baseUrl =
+  'https://6374b55948dfab73a4e65042.mockapi.io/todo_list/events_react_project/2';
 
-export default flightsDate => {
-  return fetch(`${baseUrl}/${flightsDate}`)
-    .then(response => {
-      if (!response.ok) {
-        throw Error(`data acquisition error. Server error ${response.status}`);
-      }
-      return response.json();
-    })
-    .catch(error => alert(error.message));
+export const fetchResultsList = () => {
+  return fetch(baseUrl).then((response) => response.json());
+};
+
+export const updateResults = (updatedResults) => {
+  return fetch(`${baseUrl}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: JSON.stringify(updatedResults),
+  });
 };

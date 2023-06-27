@@ -9,20 +9,16 @@
   visibility: visible;
 }
 
-/* .overlay:target {
-  visibility: visible;
-} */
-
 .popup {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 30%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   width: 500px;
-  height: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,4 +31,15 @@ button {
   cursor: pointer;
   display: inline-block;
   text-transform: capitalize;
+}
+
+h2 {
+  margin: 0;
+}
+
+.row {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
 }

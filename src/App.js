@@ -55,7 +55,6 @@ const App = ({
 
 const mapstate = (state) => ({
   ...state.snake,
-  // score: state.snake.snake.length - 1,
 });
 
 const mapDispatch = {
